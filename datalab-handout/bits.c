@@ -251,7 +251,7 @@ int negate(int x) {
  *   Rating: 3
  */
 int isPositive(int x) {
-    return !(x >> 31) & ((~x+1) >> 31) & 0x01;
+    return (!(x >> 31)) & ((~x+1) >> 31) & 0x01;
 }
 /*
  * isLessOrEqual - if x <= y  then return 1, else return 0
@@ -261,7 +261,8 @@ int isPositive(int x) {
  *   Rating: 3
  */
 int isLessOrEqual(int x, int y) {
-    return (~(~x & y) & ((x & ~y) | ~(y + ~ x + 1))) >> 31 & 0x01;}
+    return (~(~x & y) & ((x & ~y) | ~(y + ~ x + 1))) >> 31 & 0x01;
+}
 /*
  * ilog2 - return floor(log base 2 of x), where x > 0
  *   Example: ilog2(16) = 4
